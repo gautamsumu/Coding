@@ -7,8 +7,9 @@ using namespace std;
 class Sorting{
 	public:
 		static int available_sorting_choices(){
-			int algorithms_implemented = 1;
+			int algorithms_implemented = 2;
 			cout << "1 - Selection Sort\n";
+			cout << "1 - Bubble Sort\n";
 			return algorithms_implemented;
 		}
 
@@ -16,6 +17,9 @@ class Sorting{
 			switch(sorting_algorithm){
 				case 1:
 					selection_sort(numbers);
+					break;
+				case 2:
+					bubble_sort(numbers);
 					break;
 			}
 		}
@@ -31,6 +35,19 @@ class Sorting{
 					}
 				}
 				Utils::swap(numbers[i], numbers[min_index]);
+			}
+		}
+
+		static void bubble_sort(vector<int> &numbers){
+			int swaps = 1;
+			while(swaps > 0){
+				swaps = 0;
+				for(int i = 1; i < numbers.size(); ++i){
+					if(numbers[i] < numbers[i - 1]){
+						Utils::swap(numbers[i], numbers[i - 1]);
+						++swaps;
+					}
+				}
 			}
 		}
 };
