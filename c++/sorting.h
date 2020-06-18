@@ -39,13 +39,10 @@ class Sorting{
 		}
 
 		static void bubble_sort(vector<int> &numbers){
-			int swaps = 1;
-			while(swaps > 0){
-				swaps = 0;
-				for(int i = 1; i < numbers.size(); ++i){
-					if(numbers[i] < numbers[i - 1]){
-						Utils::swap(numbers[i], numbers[i - 1]);
-						++swaps;
+			for(int i = 0; i < numbers.size() - 1; ++i){
+				for(int j = 1; j < numbers.size() - i; ++j){
+					if(numbers[j] < numbers[j - 1]){
+						Utils::swap(numbers[j], numbers[j - 1]);
 					}
 				}
 			}
